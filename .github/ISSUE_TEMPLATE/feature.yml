@@ -1,0 +1,62 @@
+name: Feature
+description: New capability or a change to how something works.
+labels: ["enhancement"]
+type: Feature
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem
+      description: What is wrong or missing today? Describe the situation, not the solution.
+      placeholder: |
+        The Header Date takes a single day. A job worked over two days whose schedule
+        shows one cannot carry both, so the operator types one and notes the other.
+    validations:
+      required: true
+
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposal
+      description: What should we do? If there is a real choice, give the options and recommend one.
+      placeholder: |
+        Accept a typed or picked range in the Date entry.
+        Option A: range in the same field (one control, parses both shapes)
+        Option B: a second "to" field (explicit, more UI)
+        Recommend A — one field, two shapes, matches how operators type it.
+    validations:
+      required: true
+
+  - type: textarea
+    id: acceptance
+    attributes:
+      label: Acceptance criteria
+      description: Checkboxes someone else could verify without asking you what you meant.
+      placeholder: |
+        - [ ] The Date entry accepts YYYY-MM-DD and YYYY-MM-DD/YYYY-MM-DD
+        - [ ] The derived value reads the draft's part days before the schedule's
+        - [ ] An e2e spec covers both shapes
+    validations:
+      required: true
+
+  - type: input
+    id: where
+    attributes:
+      label: Affected repo / area
+      description: Which repo and which part of it.
+      placeholder: "cnc-cartage-seed — web/src/lib/derive/header.ts"
+    validations:
+      required: true
+
+  - type: textarea
+    id: links
+    attributes:
+      label: Blocked by / relates to
+      description: |
+        Cross-repo references MUST include the owner: `Vantage-Systems-Pty-Ltd/cnc-cartage-seed#123`.
+        A bare `cnc-cartage-seed#123` does not link to anything.
+        For a real blocking relationship, also set it structurally — see CONTRIBUTING.md.
+      placeholder: |
+        Blocked by: Vantage-Systems-Pty-Ltd/cnc-cartage-seed#942
+    validations:
+      required: false

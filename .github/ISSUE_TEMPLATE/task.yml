@@ -1,0 +1,53 @@
+name: Task
+description: Known work with an agreed shape — chores, upgrades, migrations, docs.
+labels: []
+type: Task
+body:
+  - type: textarea
+    id: what
+    attributes:
+      label: What
+      description: The work. If it is a sub-task of something larger, set a parent issue rather than explaining the hierarchy here.
+      placeholder: "Write the handover for the week and move the CLAUDE.md pointer to it."
+    validations:
+      required: true
+
+  - type: textarea
+    id: why
+    attributes:
+      label: Why
+      description: One or two lines. If you cannot say why, it may not be worth doing.
+      placeholder: "Nothing survives a session but what is written down; the next session starts from the handover."
+    validations:
+      required: true
+
+  - type: textarea
+    id: acceptance
+    attributes:
+      label: Acceptance criteria
+      description: Checkboxes someone else could verify.
+      placeholder: |
+        - [ ] docs/HANDOVER-<date>.md exists and its date matches git log
+        - [ ] CLAUDE.md points at it
+    validations:
+      required: true
+
+  - type: input
+    id: where
+    attributes:
+      label: Affected repo / area
+      placeholder: "cnc-cartage-seed — docs/"
+    validations:
+      required: true
+
+  - type: textarea
+    id: links
+    attributes:
+      label: Blocked by / relates to
+      description: |
+        Cross-repo references MUST include the owner: `Vantage-Systems-Pty-Ltd/cnc-cartage-seed#123`.
+        A bare `cnc-cartage-seed#123` does not link to anything.
+      placeholder: |
+        Blocked by: Vantage-Systems-Pty-Ltd/cnc-cartage-seed#943
+    validations:
+      required: false

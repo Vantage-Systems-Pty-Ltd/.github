@@ -1,0 +1,68 @@
+name: Bug
+description: Something behaves differently from what it should.
+labels: ["bug"]
+type: Bug
+body:
+  - type: textarea
+    id: observed
+    attributes:
+      label: Observed
+      description: What actually happens. Include the error, log line, or screenshot.
+      placeholder: |
+        The figures panel shows "Needs a person · 1 draft check failed".
+        Audit row: computation.refused, detail.reason "(i) time not in output or discards".
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected
+      description: What should happen instead.
+      placeholder: The job computes, with the edited time recorded as a discard.
+    validations:
+      required: true
+
+  - type: textarea
+    id: repro
+    attributes:
+      label: Reproduction
+      description: Numbered steps. If it is intermittent, say how often and what you have ruled out.
+      placeholder: |
+        1. Open job C100123
+        2. Edit stop 8's departure to 12:05
+        3. Save — observe the refusal on the figures panel
+    validations:
+      required: true
+
+  - type: input
+    id: where
+    attributes:
+      label: Affected record / commit / environment
+      description: The job, report or request id it was seen on, plus the commit or environment. "Unknown" is a valid answer — guessing is not.
+      placeholder: "C100123, production @ 78639cf"
+    validations:
+      required: true
+
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Evidence
+      description: Point at the code. `path/to/file.ts:123` is clickable and worth ten paragraphs.
+      placeholder: "web/src/lib/sheet/guard.ts:359 refuses a time the operator edited because discarded_times lacks it."
+    validations:
+      required: false
+
+  - type: textarea
+    id: links
+    attributes:
+      label: Blocked by / relates to
+      description: |
+        Cross-repo references MUST include the owner: `Vantage-Systems-Pty-Ltd/cnc-cartage-seed#123`.
+        A bare `cnc-cartage-seed#123` does not link to anything.
+        For a real blocking relationship, also set it structurally — see CONTRIBUTING.md.
+      placeholder: |
+        Blocked by: Vantage-Systems-Pty-Ltd/cnc-cartage-seed#911
+        Relates to: Vantage-Systems-Pty-Ltd/cnc-cartage-seed#952
+    validations:
+      required: false
